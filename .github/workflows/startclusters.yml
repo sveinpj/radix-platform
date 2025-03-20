@@ -16,7 +16,6 @@ jobs:
       ENVIROMENT: dev
     steps:
       - uses: actions/checkout@v4 #Clone Repo
-
       - name: 'Az CLI login'
         uses: azure/login@v2
         with:
@@ -25,4 +24,4 @@ jobs:
           subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
 
       - name: Start clusters
-        run: RADIX_ZONE_ENV=./scripts/radix-zone/radix_zone_dev.env SLACK_WEBHOOK_UR=${{ secrets.SLACK_WEBHOOK }} TASK=start .github/workflows/scripts/dailytasks.sh
+        run: RADIX_ZONE_ENV=./scripts/radix-zone/radix_zone_dev.env SLACK_WEBHOOK_URL=${{ secrets.SLACK_WEBHOOK }} TASK=start .github/workflows/scripts/dailytasks.sh
